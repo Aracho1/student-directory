@@ -39,8 +39,26 @@ def print_header
 end
 
 def print(students)
+  puts "Students with numbers"
+  students.each_with_index do |student, index|
+    # students with number
+    puts "* #{index + 1} #{student[:name]} (#{student[:cohort]})"
+  end
+
+  # only print the students whose name begins with a specific letter.
+  puts "Students whose name start with D: "
   students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
+    if student[:name].chr == "D"
+      puts "* #{student[:name]} (#{student[:cohort]} cohort)"
+    end
+  end
+
+  # only print the students whose name is shorter than 12 characters.
+  puts "Students whose name is shorter than 12 characters: "
+  students.each do |student|
+    if student[:name].length < 12
+      puts "* #{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 
